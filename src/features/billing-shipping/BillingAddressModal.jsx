@@ -31,6 +31,10 @@ const BillingAddressModal = ({
     console.log("billingAddress formData", formData);
 
     useEffect(() => {
+        console.log("Updated formData", formData);
+    }, [formData]);
+
+    useEffect(() => {
         if (editCheck) {
             firstNameRef.current?.focus();
         }

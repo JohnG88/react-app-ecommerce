@@ -30,6 +30,7 @@ const ShippingAddress = ({ formData, onFormDataChange }) => {
     // console.log("billingShipping", billingShipping);
 
     useEffect(() => {
+        console.log("Shipping Address");
         if (isAuthenticated && isSuccess && billingShipping?.ids?.length > 0) {
             const id = billingShipping.ids[0];
             if (id !== undefined && billingShipping.entities[id]) {

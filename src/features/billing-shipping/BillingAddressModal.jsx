@@ -37,6 +37,8 @@ const BillingAddressModal = ({
     }, [editCheck]);
 
     useEffect(() => {
+        console.log("Billing address");
+
         if (!initialized && isSuccess) {
             if (
                 billingShipping &&

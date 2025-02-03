@@ -129,12 +129,27 @@ const SubmitOrder = () => {
     const handleSubmitOrder = async () => {
         const card = elements.getElement(CardElement);
 
+        // Debugging stripe Elements
+        console.log("Stripe object: ", stripe);
+        console.log("Elements object: ", elements);
+        console.log("Card element: ", card);
+
+        if (!stripe || !elements || !card) {
+            console.error("Stripe.js has not loaded properly.");
+            return;
+        }
+
         try {
-            const { paymentMethod } = await stripe.createPaymentMethod({
+            const { error, paymentMethod } = await stripe.createPaymentMethod({
                 type: "card",
                 card: card,
             });
-            // console.log("payment id", paymentMethod);
+
+            if (error) {
+                console.error("Error creating payment method: ", error);
+            }
+
+            console.log("payment id", paymentMethod);
             // console.log("firstName", firstName);
             // console.log("Form data before submitOrder:", formData);
             const inputInfo = await submitOrder({
@@ -156,7 +171,7 @@ const SubmitOrder = () => {
 
             navigate("/order-confirmed");
         } catch (err) {
-            // console.log("Error", err);
+            console.error("Error submitting error: ", err);
         }
     };
 

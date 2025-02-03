@@ -19,6 +19,11 @@ import ProfilePage from "./features/profile/ProfilePage";
 import { Elements } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
 
+console.log(
+    "Stripe Public Key:",
+    import.meta.env.VITE_REACT_APP_STRIPE_PUBLIC_KEY
+);
+
 const stripePromise = loadStripe(
     import.meta.env.VITE_REACT_APP_STRIPE_PUBLIC_KEY
 );

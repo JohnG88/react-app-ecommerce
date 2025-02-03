@@ -31,7 +31,7 @@ const BillingAddressModal = ({
     console.log("billingAddress formData", formData);
 
     useEffect(() => {
-        console.log("Updated formData", formData);
+        console.log("Updated billing formData", formData);
     }, [formData]);
 
     useEffect(() => {
@@ -154,6 +154,7 @@ const BillingAddressModal = ({
     return (
         <div className="modal-overlay" onClick={onClose}>
             <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+                <h2>Billing Address</h2>
                 <button className="modal-close" onClick={onClose}>
                     X
                 </button>

@@ -43,11 +43,11 @@ const AddressForm = ({
         setEditCheck((prev) => !prev);
     };
 
-    const handleShippingEdit = (e) => {
+    const handleShippingEdit = async (e) => {
         e.preventDefault();
 
         try {
-            updateBillingShippingAddress({
+            await updateBillingShippingAddress({
                 id: formData.id,
                 address_type: "shipping",
                 first_name: formData.firstName,
@@ -64,9 +64,9 @@ const AddressForm = ({
         }
     };
 
-    const handleConfirmEditClick = (e) => {
+    const handleConfirmEditClick = async (e) => {
         e.preventDefault();
-        handleShippingEdit(e);
+        await handleShippingEdit(e);
         clickEditButton(e);
     };
 
